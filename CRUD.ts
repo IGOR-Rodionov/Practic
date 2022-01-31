@@ -16,7 +16,6 @@ class CRUD {
     public async Delete(){
         //     await this.DataBase.Run("news");
 
-        // THIS COMMIT FOR TEST GIT CONNECTION
         //   await this.DataBase.CloseCon();
     }
     public async Read(){
