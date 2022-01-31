@@ -18,6 +18,7 @@ export class DbConnect {
             console.log("Возникла ошибка");
             console.log(error);
         }
+
     }
 
     async CloseCon(){
