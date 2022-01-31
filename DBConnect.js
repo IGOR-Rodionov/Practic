@@ -1,4 +1,33 @@
 "use strict";
+/*export class DbConnect {
+    private MongoConnect: any;
+    private DbName: string;
+
+    constructor(url: string , DbName: string) {
+        this.DbName = DbName;
+        const MongoClient = require("mongodb").MongoClient;
+        this.MongoConnect = new MongoClient(url);
+    }
+
+    async Run(Connlection:string){
+        try {
+            await this.MongoConnect.connect();
+            const DataBase = await this.MongoConnect.db(this.DbName);
+            const collection = await DataBase.collection(Connlection);
+            return collection;
+        }
+
+        catch(error:any) {
+            console.log("Возникла ошибка");
+            console.log(error);
+        }
+
+    }
+
+    async CloseCon(){
+        await this.MongoConnect.close();
+    }
+}*/
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -43,13 +72,19 @@ var DbConnect = /** @class */ (function () {
         var MongoClient = require("mongodb").MongoClient;
         this.MongoConnect = new MongoClient(url);
     }
+    DbConnect.getInstance = function (url, DbName) {
+        if (!DbConnect.instance) {
+            DbConnect.instance = new DbConnect(url, DbName);
+        }
+        return DbConnect.instance;
+    };
     DbConnect.prototype.Run = function (Connlection) {
         return __awaiter(this, void 0, void 0, function () {
             var DataBase, collection, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 5, , 6]);
+                        _a.trys.push([0, 4, , 5]);
                         return [4 /*yield*/, this.MongoConnect.connect()];
                     case 1:
                         _a.sent();
@@ -59,16 +94,13 @@ var DbConnect = /** @class */ (function () {
                         return [4 /*yield*/, DataBase.collection(Connlection)];
                     case 3:
                         collection = _a.sent();
-                        return [4 /*yield*/, this.MongoConnect.close()];
-                    case 4:
-                        _a.sent();
                         return [2 /*return*/, collection];
-                    case 5:
+                    case 4:
                         error_1 = _a.sent();
                         console.log("Возникла ошибка");
                         console.log(error_1);
-                        return [3 /*break*/, 6];
-                    case 6: return [2 /*return*/];
+                        return [3 /*break*/, 5];
+                    case 5: return [2 /*return*/];
                 }
             });
         });

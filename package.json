@@ -1,8 +1,26 @@
 {
   "dependencies": {
-    "mongodb": "^4.3.1"
+    "mongodb": "^4.3.1",
+    "mongoose": "^6.1.9"
   },
   "devDependencies": {
     "@types/node": "^17.0.13"
-  }
+  },
+  "name": "practic",
+  "description": "npm install mongoose",
+  "version": "1.0.0",
+  "main": "CRUD.js",
+  "scripts": {
+    "test": "н"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alfaJK/Practic.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alfaJK/Practic/issues"
+  },
+  "homepage": "https://github.com/alfaJK/Practic#readme"
 }

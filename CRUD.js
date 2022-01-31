@@ -39,17 +39,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var DBConnect_1 = require("./DBConnect");
 var CRUD = /** @class */ (function () {
     function CRUD() {
-        this.DataBase = new DBConnect_1.DbConnect("mongodb://localhost:27017/", "test");
+        this.DataBase = DBConnect_1.DbConnect.getInstance("mongodb://localhost:27017/", "test");
+        // this.DataBase = new DbConnect("mongodb://localhost:27017/", "test");
     }
-    CRUD.prototype.Create = function () {
+    CRUD.prototype.Create = function (data) {
         return __awaiter(this, void 0, void 0, function () {
+            var collection;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.DataBase.Run("news")];
                     case 1:
+                        collection = _a.sent();
+                        return [4 /*yield*/, collection.insertOne(data)];
+                    case 2:
                         _a.sent();
                         return [4 /*yield*/, this.DataBase.CloseCon()];
-                    case 2:
+                    case 3:
                         _a.sent();
                         return [2 /*return*/];
                 }
@@ -58,13 +63,17 @@ var CRUD = /** @class */ (function () {
     };
     CRUD.prototype.Delete = function () {
         return __awaiter(this, void 0, void 0, function () {
+            var collection;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.DataBase.Run("news")];
                     case 1:
+                        collection = _a.sent();
+                        return [4 /*yield*/, collection.deleteMany({})];
+                    case 2:
                         _a.sent();
                         return [4 /*yield*/, this.DataBase.CloseCon()];
-                    case 2:
+                    case 3:
                         _a.sent();
                         return [2 /*return*/];
                 }
@@ -73,22 +82,19 @@ var CRUD = /** @class */ (function () {
     };
     CRUD.prototype.Read = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var collection, tt;
+            var collection, data;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.DataBase.Run("news")];
                     case 1:
                         collection = _a.sent();
-                        return [4 /*yield*/, collection.insertOne({ "name": "endy", "age": 55, languages: ["russia"] })];
+                        return [4 /*yield*/, collection.find({}, { age: 55 }).toArray()];
                     case 2:
-                        _a.sent();
-                        return [4 /*yield*/, collection.find({}).toArray()];
-                    case 3:
-                        tt = _a.sent();
-                        console.log(tt);
+                        data = _a.sent();
+                        console.log(data);
                         console.log("успешно");
                         return [4 /*yield*/, this.DataBase.CloseCon()];
-                    case 4:
+                    case 3:
                         _a.sent();
                         return [2 /*return*/];
                 }
@@ -112,7 +118,28 @@ var CRUD = /** @class */ (function () {
     };
     return CRUD;
 }());
-var Crud = new CRUD();
-Crud.Create();
-Crud.Delete();
-Crud.Update();
+function main() {
+    return __awaiter(this, void 0, void 0, function () {
+        var Crud;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    Crud = new CRUD();
+                    return [4 /*yield*/, Crud.Delete()];
+                case 1:
+                    _a.sent();
+                    return [4 /*yield*/, Crud.Create({ "name": "sasha" })];
+                case 2:
+                    _a.sent();
+                    return [4 /*yield*/, Crud.Create({ "name": "endy", "age": 55, languages: ["russia"] })];
+                case 3:
+                    _a.sent();
+                    return [4 /*yield*/, Crud.Read()];
+                case 4:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+main();
