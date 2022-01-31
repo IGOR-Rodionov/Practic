@@ -25,6 +25,7 @@ class CRUD {
     public async Update(){
        await this.DataBase.Run("news");
 
+
        await this.DataBase.CloseCon();
     }
 
