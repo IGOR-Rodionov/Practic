@@ -14,6 +14,7 @@ export class DbConnect {
             await this.MongoConnect.close();
             return collection;
         }
+
         catch(error:any) {
             console.log("Возникла ошибка");
             console.log(error);
