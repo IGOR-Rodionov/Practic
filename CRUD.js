@@ -66,21 +66,45 @@ var CRUD = /** @class */ (function () {
     CRUD.prototype.Delete = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.DataBase.Run("news")];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, this.DataBase.CloseCon()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
             });
         });
     };
     CRUD.prototype.Read = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.DataBase.Run("news")];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, this.DataBase.CloseCon()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
             });
         });
     };
     CRUD.prototype.Update = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.DataBase.Run("news")];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, this.DataBase.CloseCon()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
             });
         });
     };

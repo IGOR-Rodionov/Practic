@@ -14,19 +14,19 @@ class CRUD {
        //  await this.DataBase.CloseCon();
     }
     public async Delete(){
-        //     await this.DataBase.Run("news");
+             await this.DataBase.Run("news");
 
-        //   await this.DataBase.CloseCon();
+           await this.DataBase.CloseCon();
     }
     public async Read(){
-        //   await this.DataBase.Run("news");
+           await this.DataBase.Run("news");
 
-        //   await this.DataBase.CloseCon();
+           await this.DataBase.CloseCon();
     }
     public async Update(){
-        //   await this.DataBase.Run("news");
+           await this.DataBase.Run("news");
 
-        //    await this.DataBase.CloseCon();
+           await this.DataBase.CloseCon();
     }
 
 }
