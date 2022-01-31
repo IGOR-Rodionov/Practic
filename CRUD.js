@@ -43,21 +43,14 @@ var CRUD = /** @class */ (function () {
     }
     CRUD.prototype.Create = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var collection, tt;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.DataBase.Run("news")]; //.insertOne({"name": "Tom", "age": 28, languages: ["english", "spanish"]});
+                    case 0: return [4 /*yield*/, this.DataBase.Run("news")];
                     case 1:
-                        collection = _a.sent() //.insertOne({"name": "Tom", "age": 28, languages: ["english", "spanish"]});
-                        ;
-                        return [4 /*yield*/, collection.insertOne({ "name": "endy", "age": 55, languages: ["russia"] })];
+                        _a.sent();
+                        return [4 /*yield*/, this.DataBase.CloseCon()];
                     case 2:
                         _a.sent();
-                        return [4 /*yield*/, collection.find({}).toArray()];
-                    case 3:
-                        tt = _a.sent();
-                        console.log(tt);
-                        console.log("успешно");
                         return [2 /*return*/];
                 }
             });
@@ -66,21 +59,54 @@ var CRUD = /** @class */ (function () {
     CRUD.prototype.Delete = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.DataBase.Run("news")];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, this.DataBase.CloseCon()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
             });
         });
     };
     CRUD.prototype.Read = function () {
         return __awaiter(this, void 0, void 0, function () {
+            var collection, tt;
             return __generator(this, function (_a) {
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.DataBase.Run("news")];
+                    case 1:
+                        collection = _a.sent();
+                        return [4 /*yield*/, collection.insertOne({ "name": "endy", "age": 55, languages: ["russia"] })];
+                    case 2:
+                        _a.sent();
+                        return [4 /*yield*/, collection.find({}).toArray()];
+                    case 3:
+                        tt = _a.sent();
+                        console.log(tt);
+                        console.log("успешно");
+                        return [4 /*yield*/, this.DataBase.CloseCon()];
+                    case 4:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
             });
         });
     };
     CRUD.prototype.Update = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.DataBase.Run("news")];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, this.DataBase.CloseCon()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
             });
         });
     };
@@ -88,8 +114,5 @@ var CRUD = /** @class */ (function () {
 }());
 var Crud = new CRUD();
 Crud.Create();
-var Test = /** @class */ (function () {
-    function Test() {
-    }
-    return Test;
-}());
+Crud.Delete();
+Crud.Update();
