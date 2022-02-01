@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Yes</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    </head>
+
+    <style>
+        .row > div > *
+        {
+            margin-bottom: 10px;
+        }
+    </style>
+
+<body>
+	<div style="margin: 15px; width: 850px;">
+        <form action="clients.php" method="get" value = "">
+
+            <div class="row g-2">
+
+                <div class="col-8">
+                    <input type="text" class="form-control" placeholder="Заголовок">
+
+                    <textarea class="form-control" style="height: 160px;" placeholder="Основной текст новости"></textarea>
+
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="formFile1" class="form-label">Загрузить изображение</label>
+                                <input class="form-control" type="file" id="formFile1" accept=".jpg,.jpeg,.gif,.png">
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="formFile2" class="form-label">Загрузить файлы</label>
+                                <input class="form-control" type="file" id="formFile2" accept=".pdf">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div>
+                        <select class="form-select" >
+                            <option selected>Категория новости</option>
+                            <option value="">Новость</option>
+                            <option value="">Мероприятие</option>
+                            <option value="">Событие</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <select class="form-select">
+                            <option selected>Круг лиц</option>
+                            <option value="">ИМИТ</option>
+                            <option value="">Не ИМИТ</option>
+                        </select>
+                    </div>
+
+
+                    <div class="border rounded p-1 px-2">
+                        <div >Список соц. сетей:</div>
+
+                        <input class="form-check-input" type="checkbox" value="" id="checkbox1">
+                        <label class="form-check-label" for="checkbox1"> Одноклассники </label>
+
+                        <br>
+
+                        <input class="form-check-input" type="checkbox" value="" id="checkbox2">
+                        <label class="form-check-label" for="checkbox2"> Мой мир </label>
+
+                        <br>
+
+                        <input class="form-check-input" type="checkbox" value="" id="checkbox3">
+                        <label class="form-check-label" for="checkbox3"> Вконтакте </label>
+                    </div>
+
+                    <div>
+                        <label class="form-check-label" for="date"> Дата публикации: </label>
+                        <input id="date" type="date" value="1917-01-01">
+                    </div>
+
+                    <div>
+                        <button type="button" class="btn btn-success">Опубликовать</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+	</div>
+</body>
+</html>
+</html>
