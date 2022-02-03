@@ -16,11 +16,11 @@ export class DbConnect {
         return DbConnect.instance;
     }
 
-    async Run(Connlection:string){
+    async Run(Connection:string){
         try {
             await this.MongoConnect.connect();
             const DataBase = await this.MongoConnect.db(this.DbName);
-            const collection = await DataBase.collection(Connlection);
+            const collection = await DataBase.collection(Connection);
             return collection;
         }
 

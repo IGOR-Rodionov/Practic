@@ -81,20 +81,36 @@ var CRUD = /** @class */ (function () {
         });
     };
     CRUD.prototype.Read = function () {
+        var fieldsFilter = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            fieldsFilter[_i] = arguments[_i];
+        }
         return __awaiter(this, void 0, void 0, function () {
-            var collection, data;
+            var collection, filterQuery, prop, data, data;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.DataBase.Run("news")];
                     case 1:
                         collection = _a.sent();
-                        return [4 /*yield*/, collection.find({}, { age: 55 }).toArray()];
+                        if (!(fieldsFilter.length !== 0)) return [3 /*break*/, 3];
+                        filterQuery = void 0;
+                        for (prop in fieldsFilter) {
+                            if (prop === "header" || prop === "body") {
+                                fieldsFilter[prop] = new RegExp(fieldsFilter[prop], "gi");
+                            }
+                        }
+                        return [4 /*yield*/, collection.find(fieldsFilter).toArray()];
                     case 2:
+                        data = _a.sent();
+                        return [3 /*break*/, 5];
+                    case 3: return [4 /*yield*/, collection.find({}, { age: 55 }).toArray()];
+                    case 4:
                         data = _a.sent();
                         console.log(data);
                         console.log("успешно");
-                        return [4 /*yield*/, this.DataBase.CloseCon()];
-                    case 3:
+                        _a.label = 5;
+                    case 5: return [4 /*yield*/, this.DataBase.CloseCon()];
+                    case 6:
                         _a.sent();
                         return [2 /*return*/];
                 }

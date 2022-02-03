@@ -49,7 +49,7 @@ var DbConnect = /** @class */ (function () {
         }
         return DbConnect.instance;
     };
-    DbConnect.prototype.Run = function (Connlection) {
+    DbConnect.prototype.Run = function (Connection) {
         return __awaiter(this, void 0, void 0, function () {
             var DataBase, collection, error_1;
             return __generator(this, function (_a) {
@@ -62,7 +62,7 @@ var DbConnect = /** @class */ (function () {
                         return [4 /*yield*/, this.MongoConnect.db(this.DbName)];
                     case 2:
                         DataBase = _a.sent();
-                        return [4 /*yield*/, DataBase.collection(Connlection)];
+                        return [4 /*yield*/, DataBase.collection(Connection)];
                     case 3:
                         collection = _a.sent();
                         return [2 /*return*/, collection];
